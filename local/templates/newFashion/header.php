@@ -77,10 +77,7 @@ Asset::getInstance()->AddJs(SITE_TEMPLATE_PATH."/js/megamenu.js");
 	)
 );?>
 <!-- end header menu -->
-		<ul class="megamenu skyblue">
-			<li class="active grid"><a class="color1" href="index.html">Home</a></li>			
-
-		</ul> 			 
+					 
 		<div class="clearfix"></div>			   	
 	</div>
 
@@ -108,20 +105,15 @@ Asset::getInstance()->AddJs(SITE_TEMPLATE_PATH."/js/megamenu.js");
 <div class="categoires">
 	<div class="container">
 
-		<?$APPLICATION->IncludeComponent(
-			"bitrix:breadcrumb",
-			"",
-			Array(
-				"PATH" => "",
-				"SITE_ID" => "s1",
-				"START_FROM" => "0"
-			)
-			);?>
+		<?$APPLICATION->IncludeComponent("bitrix:breadcrumb", "breadcrumb", Array(
+		"PATH" => "",	// Путь, для которого будет построена навигационная цепочка (по умолчанию, текущий путь)
+			"SITE_ID" => "s1",	// Cайт (устанавливается в случае многосайтовой версии, когда DOCUMENT_ROOT у сайтов разный)
+			"START_FROM" => "0",	// Номер пункта, начиная с которого будет построена навигационная цепочка
+		),
+		false
+		);?>
 
-		<ol class="breadcrumb">
-			<li><a href="index.html">Home</a></li>
-			<li class="active">Men</li>
-		</ol>
+	
 
 
 
