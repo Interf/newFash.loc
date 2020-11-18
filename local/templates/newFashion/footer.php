@@ -11,27 +11,38 @@
 <div class="fotter">
 	 <div class="container">
 	 <div class="col-md-6 contact">
-		  <form>
-			 <input type="text" class="text" value="Name..." onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Name...';}">
-			 <input type="text" class="text" value="Email..." onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Email...';}">
-			 <textarea onfocus="if(this.value == 'Message...') this.value='';" onblur="if(this.value == '') this.value='Message...';" >Message...</textarea>	
-			 <div class="clearfix"></div>
-			 <input type="submit" value="SUBMIT">
-		 </form>
+	 	<?$APPLICATION->IncludeComponent(
+	 		"bitrix:main.feedback",
+	 		"footer.feedback",
+	 		Array(
+	 			"AJAX_MODE" => "Y",
+	 			"EMAIL_TO" => "int@itn.int",
+	 			"EVENT_MESSAGE_ID" => array(0=>"7",),
+	 			"OK_TEXT" => "Спасибо, ваше сообщение принято.",
+	 			"REQUIRED_FIELDS" => array(0=>"NAME",1=>"EMAIL",2=>"MESSAGE",),
+	 			"USE_CAPTCHA" => "Y"
+	 		)
+	 		);?>
 
 	 </div>
 	 <div class="col-md-6 ftr-left">
 		 <div class="ftr-list">
-			 <ul>
-				 <li><a href="#">Home</a></li>
-				 <li><a href="about.html">About</a></li>
-				 <li><a href="blog.html">Blog</a></li>
-				 <li><a href="products.html">Top Seller</a></li>
-				 <li><a href="shop.html">New Models</a></li>
-				 <li><a href="404.html">Combos</a></li>
-				 <li><a href="products.html">Collection</a></li>
-				 <li><a href="contact.html">Contact</a></li>
-			 </ul>
+		 	<?$APPLICATION->IncludeComponent(
+		 		"bitrix:menu",
+		 		"bottom.menu",
+		 		Array(
+		 			"ALLOW_MULTI_SELECT" => "N",
+		 			"CHILD_MENU_TYPE" => "left",
+		 			"DELAY" => "N",
+		 			"MAX_LEVEL" => "1",
+		 			"MENU_CACHE_GET_VARS" => array(0=>"",),
+		 			"MENU_CACHE_TIME" => "3600",
+		 			"MENU_CACHE_TYPE" => "N",
+		 			"MENU_CACHE_USE_GROUPS" => "Y",
+		 			"ROOT_MENU_TYPE" => "main",
+		 			"USE_EXT" => "Y"
+		 		)
+		 		);?>
 		 </div>
 		 <div class="clearfix"></div>
 		 <h4>FOLLOW US</h4>
