@@ -9,7 +9,6 @@ $(document).ready(function() {
 		let quantity = $(this).parents('.prod_info').find('.item_quantity').val();
 		let curBtn = $(this);
 
-
 		$.ajax({
 			url: '/local/ajax/cartItems.php',
 			type: 'POST',
@@ -23,24 +22,20 @@ $(document).ready(function() {
 		.done(function(data) {
 			data = $.parseJSON(data);
 			if(data.ERRORS) {
-
 				alert(data.ERRORS);
 			}
 			else if(data.SUCCESS) {
+				$.post(window.location.pathname, {AJAX_SMALL_CART: 'Y'}, function(data, textStatus, xhr) {
+					$('.sale_basket_line').html(data);
+				});
+
 				curBtn.replaceWith('<a href="/personal/cart/" class="added_item">Перейти в корзину</a>');
 			}
 			inProgress = false;
 		})
-		.fail(function() {
-			console.log("error");
+		.fail(function(data) {
+			console.log(data);
 		})
-		.always(function() {
-			console.log("complete");
-		});
-		
-
-
-		// 
 		
 	});
 
