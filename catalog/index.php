@@ -122,7 +122,7 @@ $APPLICATION->SetTitle("Каталог");
 		),
 		"LIST_OFFERS_LIMIT" => "5",
 		"LIST_OFFERS_PROPERTY_CODE" => array(
-			0 => "",
+			0 => "COLOR",
 			1 => "",
 		),
 		"LIST_PRODUCT_BLOCKS_ORDER" => "price,props,sku,quantityLimit,quantity,buttons",
