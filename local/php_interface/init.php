@@ -2,7 +2,7 @@
 
 
 function dump($data, $exit = false) {
-	echo "<pre>" . print_r($data) . "</pre>";
+	echo "<pre>" . print_r($data, 1) . "</pre>";
 	if($exit) {
 		exit();
 	}

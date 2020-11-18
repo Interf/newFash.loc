@@ -105,6 +105,32 @@ i.arrow{
 .banner {
 	padding: 0;
 }
+.sku_link img {
+	width: 50px !important;
+	height: 50px !important;
+}
+.sku_link {
+	display: flex !important;
+}
+.active_sku {
+	border: 3px dashed green;
+}
+.added_item {
+	color: #fff;
+    text-decoration: none;
+    font-weight: 600;
+    padding: 0.7em 1.5em;
+    font-size: 1.1em;
+    display: inline-block;
+    border-radius: 5px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -o-border-radius: 5px;
+    margin: 0px 16px 0px 0px;
+    background: #ef8743;
+    border: none;
+    outline: none;
+}
 .box_1 h3 {
   background:rgba(55, 55, 55, 1);
   padding: 10px 10px;
@@ -3779,3 +3805,4 @@ a.order {
 ul.place li {
   font-size: 0.85em;
 }
+
