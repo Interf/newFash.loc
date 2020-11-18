@@ -28,6 +28,8 @@ Asset::getInstance()->AddCss(SITE_TEMPLATE_PATH."/css/component.css");
 
 Asset::getInstance()->AddJs(SITE_TEMPLATE_PATH."/js/jquery.min.js");
 
+Asset::getInstance()->AddJs(SITE_TEMPLATE_PATH."/js/myScripts/addItemInCart.js");
+
 // <!-- start menu -->
 Asset::getInstance()->AddCss(SITE_TEMPLATE_PATH."/css/megamenu.css");
 Asset::getInstance()->AddJs(SITE_TEMPLATE_PATH."/js/megamenu.js");
