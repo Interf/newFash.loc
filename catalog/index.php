@@ -1,7 +1,13 @@
 <?
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
 $APPLICATION->SetTitle("Каталог");
-?><?$APPLICATION->IncludeComponent(
+?>
+
+<div class="catalog_container">
+	<?php if(isset($_POST['AJAX_CHANGE_SKU'])) {
+		$APPLICATION->RestartBuffer();
+	} ?>
+<?$APPLICATION->IncludeComponent(
 	"bitrix:catalog", 
 	"catalog", 
 	array(
@@ -288,4 +294,10 @@ $APPLICATION->SetTitle("Каталог");
 		)
 	),
 	false
-);?><br><?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>
+);?>
+<?php if(isset($_POST['AJAX_CHANGE_SKU'])) {
+	exit();
+} ?>
+</div>
+
+<?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>

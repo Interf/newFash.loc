@@ -10,16 +10,11 @@
 		
 
 		$.each($('.add_item'), function(index, val) {
-			 if(prod_in_cart.indexOf($(val).attr('id-prod')) !== -1) {
-			 	$(val).replaceWith('<a href="/personal/cart/" class="added_item">Перейти в корзину</a>');
-			 }
+			if(prod_in_cart.indexOf($(val).attr('id-prod')) !== -1) {
+				$(val).replaceWith('<a href="/personal/cart/" class="added_item">Перейти в корзину</a>');
+			}
 		});
-
-
-
-
 	}
-
 </script>
 
 
