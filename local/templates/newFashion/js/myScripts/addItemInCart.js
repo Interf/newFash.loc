@@ -7,7 +7,6 @@ $(document).ready(function() {
 		inProgress = true;
 		let idItem = $(this).attr('id-prod');
 		let quantity = $(this).parents('.prod_info').find('.item_quantity').val();
-		let curBtn = $(this);
 
 		$.ajax({
 			url: '/local/ajax/cartItems.php',
@@ -29,7 +28,12 @@ $(document).ready(function() {
 					$('.sale_basket_line').html(data);
 				});
 
-				curBtn.replaceWith('<a href="/personal/cart/" class="added_item">Перейти в корзину</a>');
+				$.each($('.add_item'), function(index, val) {
+					 if($(val).attr("id-prod") == idItem) {
+					 	$(val).replaceWith('<a href="/personal/cart/" class="added_item">Перейти в корзину</a>');
+					 }
+				});
+
 			}
 			inProgress = false;
 		})
