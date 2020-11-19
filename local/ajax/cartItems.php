@@ -26,9 +26,25 @@ if(isset($_POST['ADD_ITEM_IN_CART'])) {
 	}
 
 	echo json_encode($result);
+} 
+else if(isset($_POST['DEL_ITEM_FROM_CART'])) {
+	$prod_id = intval($_POST['prodId']);
 
+	Bitrix\Main\Loader::includeModule("sale");
+	Bitrix\Main\Loader::includeModule("catalog");
 
-} else {
+	$basket = Sale\Basket::loadItemsForFUser(Sale\Fuser::getId(), Bitrix\Main\Context::getCurrent()->getSite());
+
+	$basket->getItemById($prod_id)->delete();
+	$basket->save();
+
+	if(!isset($result)) {
+		$result["SUCCESS"] = "Y";
+	}
+
+	echo json_encode($result);
+}
+else {
 	LocalRedirect("/404.php", "404 Not Found");
 }
 

@@ -2,7 +2,10 @@
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
 $APPLICATION->SetTitle("Корзина");
 ?>
-
+<div class="basket_container">
+<?php if(isset($_POST['AJAX_GET_CART'])) {
+	$APPLICATION->RestartBuffer();
+} ?>
 <script type="text/javascript">
    var basketJSParams = <?=CUtil::PhpToJSObject($arBasketJSParams);?>
 </script>
@@ -78,4 +81,9 @@ $APPLICATION->SetTitle("Корзина");
 		"COMPONENT_TEMPLATE" => "basket"
 	),
 	false
-);?><br><?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>
+);?>
+<?php if(isset($_POST['AJAX_GET_CART'])) {
+	exit();
+} ?>
+</div>
+<?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>
