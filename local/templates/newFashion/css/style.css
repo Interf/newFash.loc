@@ -131,6 +131,24 @@ i.arrow{
     border: none;
     outline: none;
 }
+
+
+.hide_container_rel {
+	position: relative;
+	display: none;
+}
+
+.hide_container_abs {
+	width: 500px;
+	min-height: 500px;
+	background-color: #fff;
+	position: absolute;
+	z-index: 1;
+}
+
+.hide_reg_container {
+	display: none;
+}
 .box_1 h3 {
   background:rgba(55, 55, 55, 1);
   padding: 10px 10px;
@@ -3805,4 +3823,3 @@ a.order {
 ul.place li {
   font-size: 0.85em;
 }
-

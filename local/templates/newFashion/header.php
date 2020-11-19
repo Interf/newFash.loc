@@ -29,6 +29,7 @@ Asset::getInstance()->AddCss(SITE_TEMPLATE_PATH."/css/component.css");
 Asset::getInstance()->AddJs(SITE_TEMPLATE_PATH."/js/jquery.min.js");
 
 Asset::getInstance()->AddJs(SITE_TEMPLATE_PATH."/js/myScripts/addItemInCart.js");
+Asset::getInstance()->AddJs(SITE_TEMPLATE_PATH."/js/myScripts/headerHideForms.js");
 
 // <!-- start menu -->
 Asset::getInstance()->AddCss(SITE_TEMPLATE_PATH."/css/megamenu.css");
@@ -47,7 +48,55 @@ Asset::getInstance()->AddJs(SITE_TEMPLATE_PATH."/js/megamenu.js");
 	<div class="container">
 		<div class="main-header">
 			<div class="carting">
-				<ul><li><a href="/auth/"> LOGIN</a></li></ul>
+				<ul><li><a href="#" class="header_hide_forms"> LOGIN</a></li></ul>
+				<div class="hide_container_rel">
+					<div class="hide_container_abs">
+						<ul>
+							<a href="#" class="btn_hide_auth">
+								<li>Вход</li>
+							</a>
+							/
+							<a href="#" class="btn_hide_reg">
+								<li>Регистрация</li>
+							</a>
+						</ul>
+						<div class="hide_auth_container">
+							<?php if(isset($_POST['AJAX_AUTH_FORM'])) {
+								$APPLICATION->RestartBuffer();
+							} ?>
+							<?$APPLICATION->IncludeComponent(
+								"bitrix:main.auth.form",
+								"header.auth.form",
+								Array(
+									"AUTH_FORGOT_PASSWORD_URL" => "",
+									"AUTH_REGISTER_URL" => "",
+									"AUTH_SUCCESS_URL" => ""
+								)
+								);?>
+							<?php if(isset($_POST['AJAX_AUTH_FORM'])) {
+								exit();
+							} ?>
+						</div>
+						<div class="hide_reg_container">
+							
+							<?$APPLICATION->IncludeComponent(
+								"bitrix:main.register",
+								"header.main.register",
+								Array(
+									"AUTH" => "Y",
+									"REQUIRED_FIELDS" => array("EMAIL"),
+									"SET_TITLE" => "N",
+									"SHOW_FIELDS" => array("EMAIL"),
+									"SUCCESS_PAGE" => "",
+									"USER_PROPERTY" => array(),
+									"USER_PROPERTY_NAME" => "",
+									"USE_BACKURL" => "N"
+								)
+								);?>
+
+						</div>
+					</div>
+				</div>
 			</div>
 			<div class="logo">
 				<h3><a href="/">NEW FASHIONS</a></h3>
