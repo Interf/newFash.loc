@@ -8,22 +8,36 @@ $APPLICATION->SetTitle("Корзина");
 </script>
 
 <?$APPLICATION->IncludeComponent(
-	"bitrix:sale.basket.basket",
-	"",
-	Array(
+	"bitrix:sale.basket.basket", 
+	"basket", 
+	array(
 		"ACTION_VARIABLE" => "basketAction",
 		"ADDITIONAL_PICT_PROP_1" => "-",
 		"ADDITIONAL_PICT_PROP_2" => "-",
 		"AUTO_CALCULATION" => "Y",
 		"BASKET_IMAGES_SCALING" => "adaptive",
-		"COLUMNS_LIST_EXT" => array("PREVIEW_PICTURE","DISCOUNT","DELETE","DELAY","TYPE","SUM"),
-		"COLUMNS_LIST_MOBILE" => array("PREVIEW_PICTURE","DISCOUNT","DELETE","DELAY","TYPE","SUM"),
+		"COLUMNS_LIST_EXT" => array(
+			0 => "PREVIEW_PICTURE",
+			1 => "DISCOUNT",
+			2 => "DELETE",
+			3 => "DELAY",
+			4 => "TYPE",
+			5 => "SUM",
+		),
+		"COLUMNS_LIST_MOBILE" => array(
+			0 => "PREVIEW_PICTURE",
+			1 => "DISCOUNT",
+			2 => "DELETE",
+			3 => "DELAY",
+			4 => "TYPE",
+			5 => "SUM",
+		),
 		"COMPATIBLE_MODE" => "Y",
 		"CORRECT_RATIO" => "Y",
 		"DEFERRED_REFRESH" => "N",
 		"DISCOUNT_PERCENT_POSITION" => "bottom-right",
 		"DISPLAY_MODE" => "extended",
-		"EMPTY_BASKET_HINT_PATH" => "/",
+		"EMPTY_BASKET_HINT_PATH" => "/catalog/",
 		"GIFTS_BLOCK_TITLE" => "Выберите один из подарков",
 		"GIFTS_CONVERT_CURRENCY" => "N",
 		"GIFTS_HIDE_BLOCK_TITLE" => "N",
@@ -38,8 +52,11 @@ $APPLICATION->SetTitle("Корзина");
 		"GIFTS_SHOW_OLD_PRICE" => "N",
 		"GIFTS_TEXT_LABEL_GIFT" => "Подарок",
 		"HIDE_COUPON" => "N",
-		"LABEL_PROP" => array(),
-		"OFFERS_PROPS" => array("COLOR"),
+		"LABEL_PROP" => array(
+		),
+		"OFFERS_PROPS" => array(
+			0 => "COLOR",
+		),
 		"PATH_TO_ORDER" => "/personal/order/",
 		"PRICE_DISPLAY_MODE" => "Y",
 		"PRICE_VAT_SHOW_VALUE" => "N",
@@ -50,11 +67,15 @@ $APPLICATION->SetTitle("Корзина");
 		"SHOW_FILTER" => "N",
 		"SHOW_RESTORE" => "N",
 		"TEMPLATE_THEME" => "blue",
-		"TOTAL_BLOCK_DISPLAY" => array("top"),
+		"TOTAL_BLOCK_DISPLAY" => array(
+			0 => "top",
+		),
 		"USE_DYNAMIC_SCROLL" => "N",
 		"USE_ENHANCED_ECOMMERCE" => "N",
 		"USE_GIFTS" => "N",
 		"USE_PREPAYMENT" => "N",
-		"USE_PRICE_ANIMATION" => "Y"
-	)
+		"USE_PRICE_ANIMATION" => "Y",
+		"COMPONENT_TEMPLATE" => "basket"
+	),
+	false
 );?><br><?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>
