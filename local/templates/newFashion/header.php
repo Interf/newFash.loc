@@ -48,6 +48,21 @@ Asset::getInstance()->AddJs(SITE_TEMPLATE_PATH."/js/megamenu.js");
 	<div class="container">
 		<div class="main-header">
 			<div class="carting">
+				<?if($USER->IsAuthorized()):?>
+					<ul>
+						<li><span style="color: #fff;">Здравствуйте,</span> <a href="/personal/"><?=$USER->GetLogin();?></a></li>
+						<span style="color: #fff;">/</span>
+						<li><a 
+							href="
+							<?=$APPLICATION->GetCurPageParam("logout=yes", array(
+								"login",
+								"logout",
+								"register",
+								"forgot_password",
+								"change_password"));?>"
+								>Выйти</a></li>
+					</ul>
+				<?php else : ?>
 				<ul><li><a href="#" class="header_hide_forms"> LOGIN</a></li></ul>
 				<div class="hide_container_rel">
 					<div class="hide_container_abs">
@@ -101,6 +116,7 @@ Asset::getInstance()->AddJs(SITE_TEMPLATE_PATH."/js/megamenu.js");
 						</div>
 					</div>
 				</div>
+				<?php endif; ?>
 			</div>
 			<div class="logo">
 				<h3><a href="/">NEW FASHIONS</a></h3>

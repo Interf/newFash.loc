@@ -1,10 +1,10 @@
 $(document).ready(function() {
 	
+	// Show/Hide forms container
 	$('body').on('click', '.header_hide_forms', function(event) {
 		event.preventDefault();
 		$('.hide_container_rel').toggle("fast");
 	});
-
 
 	// Show auth form
 	$('body').on('click', '.btn_hide_auth', function(event) {
@@ -25,12 +25,14 @@ $(document).ready(function() {
 	});
 
 
-
+	let inProgress = false;
 
 	// Ajax header.auth.form
 	$('body').on('submit', '.header_auth_form', function(event) {
 		event.preventDefault();
-		
+		if(inProgress == true) return;
+		inProgress = true;
+
 		let USER_LOGIN = $('.input_auth_login').val();
 		let USER_PASSWORD = $('.input_auth_password').val();
 		let USER_REMEMBER = $('.input_auth_remember_pass').is(':checked') ? "Y" : "N";
@@ -54,6 +56,7 @@ $(document).ready(function() {
 			} else {
 				$('.hide_auth_container').html(data);
 			}
+			inProgress = false;
 		})
 		.fail(function() {
 			console.log("error");
@@ -69,7 +72,9 @@ $(document).ready(function() {
 	// Ajax header.reg.form
 	$("body").on('submit', '.header_reg_form', function(event) {
 		event.preventDefault();
-		
+		if(inProgress == true) return;
+		inProgress = true;
+
 		let register_submit_button = $('.header_reg_submit').val();
 		let REGISTER = {
 			LOGIN : $('.header_reg_login').val(),
@@ -94,6 +99,7 @@ $(document).ready(function() {
 			} else {
 				$('.hide_reg_container').html(data);
 			}
+			inProgress = false;
 		})
 		.fail(function() {
 			console.log("error");
@@ -101,8 +107,6 @@ $(document).ready(function() {
 		.always(function() {
 			console.log("complete");
 		});
-		
-
 	});
 
 
