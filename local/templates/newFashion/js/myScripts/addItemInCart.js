@@ -2,7 +2,7 @@ $(document).ready(function() {
 
 
 	let inProgress = false;
-	$('.prod_info').on('click', '.add_item', function() {
+	$('body').on('click', '.add_item', function() {
 		if(inProgress == true) return;
 		inProgress = true;
 		let idItem = $(this).attr('id-prod');
