@@ -66,5 +66,48 @@ $(document).ready(function() {
 
 
 
+	// Ajax header.reg.form
+	$("body").on('submit', '.header_reg_form', function(event) {
+		event.preventDefault();
+		
+		let register_submit_button = $('.header_reg_submit').val();
+		let REGISTER = {
+			LOGIN : $('.header_reg_login').val(),
+			EMAIL : $('.header_reg_email').val(),
+			PASSWORD : $('.header_reg_password').val(),
+			CONFIRM_PASSWORD : $('.header_reg_confirm').val(),
+		}
+
+		$.ajax({
+			url: '/',
+			type: 'POST',
+			dataType: 'html',
+			data: {
+				REGISTER : REGISTER,
+				register_submit_button : register_submit_button,
+				AJAX_REG_FORM : "Y"
+			},
+		})
+		.done(function(data) {
+			if($(data).html() == "success") {
+				window.location.href = "/";
+			} else {
+				$('.hide_reg_container').html(data);
+			}
+		})
+		.fail(function() {
+			console.log("error");
+		})
+		.always(function() {
+			console.log("complete");
+		});
+		
+
+	});
+
+
+
+
+
 
 });

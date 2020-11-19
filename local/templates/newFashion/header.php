@@ -78,7 +78,9 @@ Asset::getInstance()->AddJs(SITE_TEMPLATE_PATH."/js/megamenu.js");
 							} ?>
 						</div>
 						<div class="hide_reg_container">
-							
+							<?php if(isset($_POST['AJAX_REG_FORM'])) {
+								$APPLICATION->RestartBuffer();
+							} ?>
 							<?$APPLICATION->IncludeComponent(
 								"bitrix:main.register",
 								"header.main.register",
@@ -93,7 +95,9 @@ Asset::getInstance()->AddJs(SITE_TEMPLATE_PATH."/js/megamenu.js");
 									"USE_BACKURL" => "N"
 								)
 								);?>
-
+							<?php if(isset($_POST['AJAX_REG_FORM'])) {
+								exit();
+							} ?>
 						</div>
 					</div>
 				</div>
