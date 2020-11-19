@@ -146,6 +146,12 @@ i.arrow{
 	z-index: 1;
 }
 
+.hr_blog {
+	margin-top: 20px;
+    margin-bottom: 20px;
+    border: 1px solid none !important;
+}
+
 .hide_reg_container {
 	display: none;
 }

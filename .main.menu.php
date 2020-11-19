@@ -1,15 +1,15 @@
 <?
 $aMenuLinks = Array(
 	Array(
-		"Test", 
-		"/test/", 
+		"Блог", 
+		"/blog/", 
 		Array(), 
 		Array(), 
 		"" 
 	),
 	Array(
-		"Блог", 
-		"/blog/", 
+		"Test", 
+		"/test/", 
 		Array(), 
 		Array(), 
 		"" 
