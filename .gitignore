@@ -1,4 +1,4 @@
-bitrix
-upload
-test
+/bitrix/
+/upload/
+/test/
 .DS_Store
