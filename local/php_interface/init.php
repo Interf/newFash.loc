@@ -7,3 +7,8 @@ function dump($data, $exit = false) {
 		exit();
 	}
 }
+
+
+if(file_exists($_SERVER["DOCUMENT_ROOT"]."/local/php_interface/eventAuth.php")) {
+	include_once($_SERVER["DOCUMENT_ROOT"]."/local/php_interface/eventAuth.php");
+}

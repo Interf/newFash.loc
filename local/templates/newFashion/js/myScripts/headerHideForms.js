@@ -51,7 +51,9 @@ $(document).ready(function() {
 			},
 		})
 		.done(function(data) {
-			if($(data).html() == "success") {
+			data = $.trim(data);
+
+			if(data == "success") {
 				window.location.href = "/";
 			} else {
 				$('.hide_auth_container').html(data);
